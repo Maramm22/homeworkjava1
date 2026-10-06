@@ -28,6 +28,33 @@ public class ZooManagement {
         System.out.println(zooName + " has " + nbrCages + " cages.");
 
 
+        //instruction 5
+        /*Animal lion = new Animal();
+        lion.name = "Lion";
+        lion.age = 14 ;
+        lion.isMammal = true;
+        lion.family = "lions";
+        Zoo myZoo = new Zoo();
+        myZoo.name = "My Zoo";
+        myZoo.city = "Tunis";
+        myZoo.nbrCages = 25;*/
+
+        //Instruction 7
+        Animal giraffe = new Animal("Giraffidae", "Fafa", 7 , true);
+
+
+        //instruction 8
+        Zoo myZoo = new Zoo("Belvedere", "Tunis");
+        myZoo.displayZoo();
+        System.out.println(myZoo);
+        System.out.println(myZoo.toString());
+
+
+
+
+
+
+
 
     }
 }

@@ -1,3 +1,5 @@
+package tn.esprit.gestionzoo.main;
+
 import java.util.Scanner;
 public class ZooManagement {
     public static void main(String[] args) {
@@ -40,14 +42,14 @@ public class ZooManagement {
         myZoo.nbrCages = 25;*/
 
         //Instruction 7
-        Animal giraffe = new Animal("Giraffidae", "Fafa", 7 , true);
+        //Animal giraffe = new Animal("Giraffidae", "Fafa", 7 , true);
 
 
         //instruction 8
-        Zoo myZoo = new Zoo("Belvedere", "Tunis");
-        myZoo.displayZoo();
+        //Zoo myZoo = new Zoo("Belvedere", "Tunis");
+        /*myZoo.displayZoo();
         System.out.println(myZoo);
-        System.out.println(myZoo.toString());
+        System.out.println(myZoo.toString());*/
 
 
 

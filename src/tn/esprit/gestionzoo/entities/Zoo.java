@@ -1,11 +1,13 @@
 package tn.esprit.gestionzoo.entities;
 
+import tn.esprit.gestionzoo.Exception.ZooFullException;
+import tn.esprit.gestionzoo.Exception.InvalidAgeException;
 public class Zoo {
     private Animal[] animals = new Animal[25];
     int nbrAnimals = 0;
     private String name;
     private String city;
-    static final int nbrCages=25;
+    static final int nbrCages=3;
 
     private Aquatic[] aquaticAnimals = new Aquatic[10];
     private int nbrAquatics = 0;
@@ -70,16 +72,18 @@ public class Zoo {
         return -1;
     }
 
-    boolean addAnimal2(Animal animal) {
+    public void addAnimal2  (Animal animal) throws ZooFullException , InvalidAgeException {
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException("Invalid age: " + animal.getAge());
+        }
         if (searchAnimal(animal) != -1) {
-            return false; // already in the zoo (an animal is unique)
+            return ; // already in the zoo (an animal is unique)
         }
         if (nbrAnimals >= animals.length) {
-            return false; // the zoo is full (max 25)
+            throw new ZooFullException("Zoo is Full " + animal.getName()); // the zoo is full (max 25)
         }
         animals[nbrAnimals] = animal;
         nbrAnimals++;
-        return true;
     }
 
 
@@ -107,6 +111,10 @@ public class Zoo {
     // }
     boolean isZooFull() {
         return nbrAnimals >= animals.length;
+    }
+
+    public int getNbrAnimals() {
+        return nbrAnimals;
     }
 
 //    //second method of iszoofull()

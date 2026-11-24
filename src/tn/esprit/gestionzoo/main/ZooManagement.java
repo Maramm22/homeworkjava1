@@ -61,54 +61,27 @@ public class ZooManagement {
         myZoo.displayZoo();
 
         //Instruction 21
-        // OLD (Aquatic is abstract, it cannot be instantiated):
-        // Aquatic a = new Aquatic();
-        Terrestrial  t = new Terrestrial();
-        Penguin p = new Penguin();
+        Aquatic a = new Aquatic();
+        Terrestrial t = new Terrestrial();
         Dolphin d = new Dolphin();
+        Penguin p = new Penguin();
 
         //Instruction 22 + 23
+        Aquatic aquatic = new Aquatic("Fish", "Nemo", 2, false, "Ocean");
         Terrestrial terrestrial = new Terrestrial("Felidae", "Simba", 5, true, 4);
         Dolphin dolphin = new Dolphin("Delphinidae", "Flipper", 8, true, "Sea", 35.5f);
         Penguin penguin = new Penguin("Spheniscidae", "Pingu", 4, false, "Antarctica", 120.0f);
 
+        System.out.println(aquatic);
         System.out.println(terrestrial);
         System.out.println(dolphin);
         System.out.println(penguin);
 
         //Instruction 24
+        aquatic.swim();
         dolphin.swim();
         penguin.swim();
 
-        //Instruction 26
-        Dolphin dolphin2 = new Dolphin("Delphinidae", "Bubbles", 6, true, "Sea", 40.0f);
-        Penguin penguin2 = new Penguin("Spheniscidae", "Skipper", 3, false, "Antarctica", 150.0f);
 
-        myZoo.addAquaticAnimal(dolphin);
-        myZoo.addAquaticAnimal(penguin);
-        myZoo.addAquaticAnimal(dolphin2);
-        myZoo.addAquaticAnimal(penguin2);
-
-        //Instruction 27
-        myZoo.displaySwimAquatics();
-
-        //Instruction 28
-        // OLD (Aquatic is abstract, it cannot be instantiated):
-        // Aquatic aquatic = new Aquatic("Fish", "Nemo", 2, false, "Ocean");
-        // System.out.println(aquatic);
-        // aquatic.swim();
-
-        //Instruction 29
-        System.out.println("Max penguin depth: " + myZoo.maxPenguinSwimmingDepth());
-
-        //Instruction 30
-        myZoo.displayNumberOfAquaticsByType();
-
-        //Instruction 31
-        Dolphin dolphin3 = new Dolphin("Delphinidae", "Flipper", 8, true, "Sea", 50.0f);
-        System.out.println("dolphin equals dolphin3: " + dolphin.equals(dolphin3));
-        System.out.println("dolphin equals dolphin2: " + dolphin.equals(dolphin2));
-
-        input.close();
     }
 }

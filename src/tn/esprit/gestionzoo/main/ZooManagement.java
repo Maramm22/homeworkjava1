@@ -1,6 +1,8 @@
 package tn.esprit.gestionzoo.main;
 
 import tn.esprit.gestionzoo.entities.Aquatic;
+import tn.esprit.gestionzoo.Exception.ZooFullException;
+import tn.esprit.gestionzoo.entities.Animal;
 import tn.esprit.gestionzoo.entities.Dolphin;
 import tn.esprit.gestionzoo.entities.Penguin;
 import tn.esprit.gestionzoo.entities.Terrestrial;
@@ -109,6 +111,19 @@ public class ZooManagement {
         System.out.println("dolphin equals dolphin3: " + dolphin.equals(dolphin3));
         System.out.println("dolphin equals dolphin2: " + dolphin.equals(dolphin2));
 
+
+        //Instruction 33
+        Animal[] animalsToAdd = {terrestrial, dolphin, penguin, dolphin2};
+        for (Animal animal : animalsToAdd) {
+            try {
+                myZoo.addAnimal(animal);
+                System.out.println(animal.getName() + " was added.");
+            } catch (ZooFullException e) {
+                System.out.println(e.getMessage());
+            } finally {
+                System.out.println("Number of animals: " + myZoo.getNbrAnimals());
+            }
+        }
         input.close();
     }
 

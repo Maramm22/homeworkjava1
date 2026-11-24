@@ -47,13 +47,12 @@ public class Zoo {
         return "Zoo is" + " " + name + " in the city of" + city + " & it has " + nbrCages + " of cages";
     }
 
-    boolean addAnimal(Animal animal) {
-        if (!isZooFull()) {
-            animals[nbrAnimals] = animal; // put it in the next free place
-            nbrAnimals++;                 // one more animal
-            return true;
+    public void addAnimal(Animal animal) throws ZooFullException {
+        if (nbrAnimals >= nbrCages) {
+            throw new ZooFullException("The zoo is full, " + animal.getName() + " cannot be added.");
         }
-        return false;
+        animals[nbrAnimals] = animal;
+        nbrAnimals++;
     }
 
     void displayAnimalsinthezoo() {

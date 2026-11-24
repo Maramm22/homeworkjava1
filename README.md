@@ -21,7 +21,7 @@
 
 ## 📖 About the Project
 As a newly recruited engineer at **ESPRIT TECH**, the mission is to build a Java console application that digitizes the management of a zoo.
-The project grows prosit by prosit, from simple classes to inheritance, polymorphism, abstraction and exception handling.
+The project grows prosit by prosit, from simple classes to inheritance, polymorphism, abstraction, exception handling, generic interfaces and enums.
 
 ## 🌿 Branches
 | Branch | Content |
@@ -32,6 +32,7 @@ The project grows prosit by prosit, from simple classes to inheritance, polymorp
 | `prosit5` | Prosit 5: inheritance (Aquatic, Terrestrial, Dolphin, Penguin) |
 | `prosit6` | Prosit 6: polymorphism, abstract class, `equals()` |
 | `prosit7` | Prosit 7: custom exceptions |
+| `prosit8` | Prosit 8: generic interfaces and enum |
 
 ## 🧩 Prosits Overview
 | Prosit | Instructions | Main concepts |
@@ -43,6 +44,7 @@ The project grows prosit by prosit, from simple classes to inheritance, polymorp
 | 5 | 20 – 24 | Inheritance, `super(...)`, `protected`, overriding `toString()` and `swim()` |
 | 6 | 25 – 31 | Array of aquatic animals, polymorphism, `abstract` method, `instanceof`, `equals()` |
 | 7 | 32 – 34 | Custom checked exceptions `ZooFullException` and `InvalidAgeException`, `try / catch / finally` |
+| 8 | 35 – 38 | Generic interfaces `Carnivore<T>`, `Herbivore<T>`, `Omnivore<T>` (an interface extending 2 interfaces), `Food` enum, `implements` |
 
 ## 🗂️ Project Structure
 ```
@@ -58,14 +60,20 @@ homeworkjava1
 └── src/tn/esprit/gestionzoo
     ├── entities
     │   ├── Animal.java
-    │   ├── Aquatic.java        (abstract)
+    │   ├── Aquatic.java        (abstract, implements Carnivore<Food>)
     │   ├── Dolphin.java
     │   ├── Penguin.java
-    │   ├── Terrestrial.java
+    │   ├── Terrestrial.java    (implements Omnivore<Food>)
     │   └── Zoo.java
+    ├── enums
+    │   └── Food.java
     ├── exceptions
     │   ├── InvalidAgeException.java
     │   └── ZooFullException.java
+    ├── interfaces
+    │   ├── Carnivore.java
+    │   ├── Herbivore.java
+    │   └── Omnivore.java
     └── main
         └── ZooManagement.java
 ```
@@ -80,6 +88,7 @@ homeworkjava1
 To see the code of a specific prosit, switch branch: `git checkout prosit5` (for example).
 
 ### Example output (final version, 3 cages)
+Exceptions (prosit 7):
 ```
 Simba was added.
 Number of animals: 1
@@ -91,6 +100,17 @@ Pingu was added.
 Number of animals: 3
 The zoo is full, Bubbles cannot be added.
 Number of animals: 3
+```
+
+Interfaces and enum (prosit 8):
+```
+Dolph eats meat.
+Dolph is carnivore, it only eats meat.
+Penig eats meat.
+Bear eats meat.
+Bear eats plants.
+Bear eats plants and meat.
+Bear expected PLANT but got MEAT.
 ```
 
 ## 🛠️ Environment

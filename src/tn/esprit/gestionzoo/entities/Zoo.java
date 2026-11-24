@@ -4,7 +4,7 @@ import tn.esprit.gestionzoo.exceptions.ZooFullException;
 import tn.esprit.gestionzoo.exceptions.InvalidAgeException;
 public class Zoo {
     private Animal[] animals = new Animal[25];
-    int nbrAnimals = 0;
+    private int nbrAnimals = 0;
     private String name;
     private String city;
     static final int nbrCages=3;
@@ -14,16 +14,16 @@ public class Zoo {
 
     public Zoo(String name, String city) {
         animals = new Animal[nbrCages];
-        this.name = name;
+        setName(name);
         this.city = city;
 
     }
 
     public void setName(String name) {
-        if (!(name == null))
+        if (name != null && !name.isEmpty()) {
             this.name = name;
-        else {
-            System.out.println("Name is null.");
+        } else {
+            System.out.println("Error: the zoo name cannot be empty.");
         }
     }
     public void setCity(String city) {
@@ -43,8 +43,9 @@ public class Zoo {
         System.out.println("Zoo nbr cages: " + nbrCages);
     }
 
+    @Override
     public String toString() {
-        return "Zoo is" + " " + name + " in the city of" + city + " & it has " + nbrCages + " of cages";
+        return "Zoo " + name + " in the city of " + city + " has " + nbrCages + " cages";
     }
 
     public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException {
@@ -71,20 +72,6 @@ public class Zoo {
             }
         }
         return -1;
-    }
-
-    public void addAnimal2  (Animal animal) throws ZooFullException , InvalidAgeException {
-        if (animal.getAge() < 0) {
-            throw new InvalidAgeException("Invalid age: " + animal.getAge());
-        }
-        if (searchAnimal(animal) != -1) {
-            return ; // already in the zoo (an animal is unique)
-        }
-        if (nbrAnimals >= animals.length) {
-            throw new ZooFullException("Zoo is Full " + animal.getName()); // the zoo is full (max 25)
-        }
-        animals[nbrAnimals] = animal;
-        nbrAnimals++;
     }
 
 

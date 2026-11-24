@@ -1,7 +1,7 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.Aquatic;
-import tn.esprit.gestionzoo.Exception.ZooFullException;
+import tn.esprit.gestionzoo.exceptions.InvalidAgeException;
+import tn.esprit.gestionzoo.exceptions.ZooFullException;
 import tn.esprit.gestionzoo.entities.Animal;
 import tn.esprit.gestionzoo.entities.Dolphin;
 import tn.esprit.gestionzoo.entities.Penguin;
@@ -113,12 +113,17 @@ public class ZooManagement {
 
 
         //Instruction 33
-        Animal[] animalsToAdd = {terrestrial, dolphin, penguin, dolphin2};
+        //Instruction 34
+        Terrestrial dog = new Terrestrial("Canidae", "Rex", -2, true, 4);
+
+        Animal[] animalsToAdd = {terrestrial, dog, dolphin, penguin, dolphin2};
         for (Animal animal : animalsToAdd) {
             try {
                 myZoo.addAnimal(animal);
                 System.out.println(animal.getName() + " was added.");
             } catch (ZooFullException e) {
+                System.out.println(e.getMessage());
+            } catch (InvalidAgeException e) {
                 System.out.println(e.getMessage());
             } finally {
                 System.out.println("Number of animals: " + myZoo.getNbrAnimals());

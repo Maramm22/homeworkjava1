@@ -19,8 +19,11 @@ public class Animal {
         this.name = name;
     }
     public void setAge(int age) {
-        if (!(age < 0) ) {}
-        this.age = age;
+        if (age >= 0) {
+            this.age = age;
+        } else {
+            System.out.println("Error: the age cannot be negative.");
+        }
     }
 
     public void setFamily(String family) {

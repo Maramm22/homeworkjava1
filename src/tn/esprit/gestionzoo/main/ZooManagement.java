@@ -7,6 +7,8 @@ import tn.esprit.gestionzoo.entities.Dolphin;
 import tn.esprit.gestionzoo.entities.Penguin;
 import tn.esprit.gestionzoo.entities.Terrestrial;
 import tn.esprit.gestionzoo.entities.Zoo;
+import tn.esprit.gestionzoo.entities.Aquatic;
+import tn.esprit.gestionzoo.enums.Food;
 
 import java.util.Scanner;
 public class ZooManagement {
@@ -129,6 +131,20 @@ public class ZooManagement {
                 System.out.println("Number of animals: " + myZoo.getNbrAnimals());
             }
         }
+
+        //Instruction 38
+        Aquatic aquatic = new Dolphin("Delphinidae", "Dolph", 5, true, "Ocean", 30.0f);
+        Penguin penguin3 = new Penguin("Spheniscidae", "Penig", 2, false, "Antarctica", 80.0f);
+        Terrestrial bear = new Terrestrial("Ursidae", "Bear", 10, true, 4);
+
+        aquatic.eatMeat(Food.MEAT);
+        aquatic.eatMeat(Food.PLANT);
+        penguin3.eatMeat(Food.MEAT);
+
+        bear.eatMeat(Food.MEAT);
+        bear.eatPlant(Food.PLANT);
+        bear.eatPlantAndMeet(Food.BOTH);
+        bear.eatPlant(Food.MEAT);
         input.close();
     }
 
